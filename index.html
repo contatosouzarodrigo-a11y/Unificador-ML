@@ -7,204 +7,246 @@
   <title>Unificador de Etiquetas ML</title>
   <style>
     :root {
-      --azul:#3483fa;
-      --azul-escuro:#1f4f9a;
-      --verde:#00a650;
-      --texto:#263238;
-      --muted:#667085;
-      --bg:#f5f7fb;
+      --ml-yellow:#FFE600;
+      --ml-blue:#2D3277;
+      --ml-link:#3483FA;
+      --green:#00A650;
+      --text:#2f3441;
+      --muted:#6b7280;
+      --bg:#f4f4f4;
       --card:#ffffff;
-      --borda:#e6eaf0;
+      --border:#e7e7e7;
     }
-    * { box-sizing:border-box; }
-    body {
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
       margin:0;
       font-family:Arial,Helvetica,sans-serif;
       background:var(--bg);
-      color:var(--texto);
+      color:var(--text);
     }
-    .wrap {
-      max-width:980px;
-      margin:0 auto;
-      padding:46px 20px 36px;
+    .topbar{
+      background:var(--ml-yellow);
+      border-bottom:1px solid rgba(0,0,0,.08);
     }
-    .hero {
-      background:var(--card);
-      border-radius:22px;
-      padding:44px 36px;
-      text-align:center;
-      box-shadow:0 12px 34px rgba(0,0,0,.07);
+    .topbar-inner{
+      max-width:1000px;
+      margin:auto;
+      padding:22px 22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
     }
-    .badge {
-      display:inline-block;
+    .brand{
+      color:var(--ml-blue);
+      font-size:28px;
+      font-weight:800;
+      letter-spacing:-.5px;
+    }
+    .free{
+      color:var(--ml-blue);
+      border:1px solid rgba(45,50,119,.2);
+      background:rgba(255,255,255,.35);
+      padding:8px 13px;
       border-radius:999px;
-      padding:8px 14px;
-      background:#eaf3ff;
-      color:var(--azul);
-      font-weight:700;
-      font-size:14px;
+      font-weight:800;
+      font-size:13px;
     }
-    h1 {
-      margin:16px 0 10px;
-      color:#172b4d;
-      font-size:42px;
+    .wrap{
+      max-width:1000px;
+      margin:0 auto;
+      padding:28px 20px 42px;
+    }
+    .hero{
+      background:#fff;
+      border-radius:18px;
+      padding:38px 34px;
+      box-shadow:0 10px 30px rgba(0,0,0,.07);
+      text-align:center;
+    }
+    h1{
+      margin:0 0 12px;
+      color:var(--ml-blue);
+      font-size:40px;
       line-height:1.08;
     }
-    .lead {
+    .lead{
       max-width:760px;
       margin:0 auto;
       font-size:20px;
       line-height:1.5;
     }
-    .economia {
+    .saving{
       margin:24px auto 18px;
-      max-width:720px;
+      max-width:700px;
       padding:18px 22px;
-      border-radius:16px;
+      border-radius:14px;
       background:#ecfbf3;
+      border:1px solid #ccefdc;
       color:#087b40;
-      font-size:25px;
-      line-height:1.25;
+      font-size:24px;
       font-weight:800;
+      line-height:1.25;
     }
-    .download {
+    .download{
       display:inline-block;
-      margin-top:8px;
-      padding:16px 28px;
-      border-radius:12px;
-      background:var(--azul);
+      background:var(--ml-link);
       color:#fff;
       text-decoration:none;
-      font-weight:800;
+      padding:16px 30px;
+      border-radius:10px;
       font-size:18px;
-      box-shadow:0 6px 16px rgba(52,131,250,.22);
+      font-weight:800;
+      box-shadow:0 6px 16px rgba(52,131,250,.24);
     }
-    .download:hover { background:var(--azul-escuro); }
-    .small {
+    .download:hover{filter:brightness(.95)}
+    .note{
       margin-top:10px;
-      color:var(--muted);
       font-size:13px;
+      color:var(--muted);
     }
-    .grid {
+    .grid{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:18px;
       margin-top:22px;
       text-align:left;
     }
-    .card {
-      border:1px solid var(--borda);
+    .card{
+      border:1px solid var(--border);
+      border-radius:14px;
       background:#fff;
-      border-radius:16px;
       padding:24px;
     }
-    .card h2 {
+    .card h2{
       margin:0 0 14px;
-      color:#172b4d;
+      color:var(--ml-blue);
       font-size:21px;
     }
-    .steps {
+    .steps{
       margin:0;
       padding-left:22px;
       line-height:1.8;
     }
-    .check {
+    .check{
       margin:10px 0;
-      line-height:1.45;
+      line-height:1.5;
     }
-    .check b:first-child {
-      color:var(--verde);
-      margin-right:6px;
+    .check strong:first-child{
+      color:var(--green);
     }
-    .example {
+    .example{
       margin-top:20px;
       background:#fff;
-      border:1px solid var(--borda);
-      border-radius:16px;
+      border:1px solid var(--border);
+      border-radius:14px;
       padding:20px;
       text-align:left;
     }
-    .example h2 {
-      margin:0 0 8px;
-      color:#172b4d;
+    .example h2{
+      margin:0 0 7px;
+      color:var(--ml-blue);
       font-size:21px;
     }
-    .example p {
+    .example p{
       margin:0 0 16px;
       color:var(--muted);
     }
-    .example img {
-      width:100%;
-      height:auto;
+    .example img{
       display:block;
-      border-radius:12px;
+      width:100%;
+      border-radius:10px;
       border:1px solid #ddd;
     }
-    footer {
+    .trust{
+      margin-top:18px;
+      padding:14px 18px;
+      background:#fafafa;
+      border:1px solid var(--border);
+      border-radius:12px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.5;
+      text-align:left;
+    }
+    footer{
       text-align:center;
       color:var(--muted);
       font-size:14px;
-      padding:26px 8px 4px;
+      padding:24px 8px 4px;
     }
-    footer a {
-      color:var(--azul);
+    footer a{
+      color:var(--ml-link);
       text-decoration:none;
       font-weight:700;
     }
-    @media(max-width:720px) {
-      .wrap { padding-top:24px; }
-      .hero { padding:30px 18px; }
-      h1 { font-size:33px; }
-      .lead { font-size:18px; }
-      .economia { font-size:21px; }
-      .grid { grid-template-columns:1fr; }
+    @media(max-width:720px){
+      .topbar-inner{padding:18px 16px}
+      .brand{font-size:22px}
+      .hero{padding:28px 18px}
+      h1{font-size:32px}
+      .lead{font-size:18px}
+      .saving{font-size:20px}
+      .grid{grid-template-columns:1fr}
     }
   </style>
 </head>
 <body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">Unificador de Etiquetas ML</div>
+      <div class="free">GRÁTIS • WINDOWS</div>
+    </div>
+  </header>
+
   <div class="wrap">
     <main class="hero">
-      <span class="badge">GRÁTIS • WINDOWS</span>
-      <h1>Unificador de Etiquetas ML</h1>
+      <h1>Economize metade das suas etiquetas, de forma gratuita</h1>
       <p class="lead">
-        Junta automaticamente a <strong>etiqueta de envio + DANFE na mesma etiqueta</strong>,
-        deixando o arquivo pronto para impressão.
+        O Unificador junta automaticamente a <strong>etiqueta de envio + DANFE na mesma etiqueta</strong>,
+        usando <strong>1 etiqueta onde normalmente seriam usadas 2</strong>.
       </p>
 
-      <div class="economia">
-        Economize 50% de etiquetas: use 1 etiqueta no lugar de 2.
+      <div class="saving">
+        Uma ferramenta gratuita para deixar sua expedição mais simples e econômica.
       </div>
 
       <a class="download" href="https://github.com/contatosouzarodrigo-a11y/Unificador-ML/releases/latest/download/Unificador-de-Etiquetas-ML.exe">
         Baixar grátis para Windows
       </a>
-      <div class="small">Instale uma vez e deixe o programa trabalhar sozinho.</div>
+      <div class="note"><strong>Gratuito, sem assinatura e sem mensalidade.</strong></div>
 
       <section class="grid">
         <div class="card">
           <h2>Como funciona</h2>
           <ol class="steps">
             <li>Instale o programa.</li>
-            <li>Baixe as etiquetas normalmente no Mercado Livre.</li>
+            <li>Baixe normalmente as etiquetas no Mercado Livre.</li>
             <li>Em cerca de <strong>2 segundos</strong>, o PDF pronto abre automaticamente.</li>
           </ol>
-          <p>Depois de instalado, o programa fica em segundo plano. Você não precisa selecionar arquivos nem converter nada manualmente.</p>
+          <p>Depois de instalado, ele fica em segundo plano e faz todo o processo sozinho.</p>
         </div>
 
         <div class="card">
           <h2>Configuração necessária</h2>
-          <div class="check"><b>✓</b> Tipo de impressora: <strong>Impressora térmica</strong></div>
-          <div class="check"><b>✓</b> Formato da etiqueta: <strong>ZPL (.txt)</strong></div>
-          <div class="check"><b>✓</b> <strong>Ativar impressão conjunta do DANFE e arquivos de envio</strong></div>
+          <div class="check"><strong>✓</strong> Tipo de impressora: <strong>Impressora térmica</strong></div>
+          <div class="check"><strong>✓</strong> Formato da etiqueta: <strong>ZPL (.txt)</strong></div>
+          <div class="check"><strong>✓</strong> <strong>Ativar impressão conjunta do DANFE e arquivos de envio</strong></div>
           <p><strong>Caminho:</strong> Preferências de venda → Configurações de impressão.</p>
         </div>
       </section>
 
       <section class="example">
         <h2>Exemplo de configuração no Mercado Livre</h2>
-        <p>Deixe as opções conforme a imagem abaixo:</p>
-        <img src="configuracao-mercado-livre.png" alt="Exemplo das configurações de impressão do Mercado Livre">
+        <p>Deixe as opções conforme a imagem:</p>
+        <img src="configuracao-mercado-livre.png" alt="Exemplo de configuração de impressão do Mercado Livre">
       </section>
+
+      <div class="trust">
+        <strong>Importante:</strong> ferramenta independente, criada para facilitar a rotina de vendedores.
+        Não é um produto oficial nem possui vínculo com o Mercado Livre.
+      </div>
     </main>
 
     <footer>
